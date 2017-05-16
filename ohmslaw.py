@@ -1,15 +1,18 @@
 import sys
 
-def volts(i, r):
+#Added func to the ends of the functions
+#And changed variable names
+
+def voltsfunc(i, r):
 	return i * r
 
-def resistance(v, i):
+def resistancefunc(v, i):
 	return v / i
 
-def current(v, r):
+def currentfunc(v, r):
 	return v / r
 
-def wattage(a, v):
+def wattagefunc(a, v):
 	return a * v
 
 while True:
@@ -27,36 +30,36 @@ while True:
 		print("""Type "m" to find all possible outcomes""")
 
 	if (decision == "v" or decision == "V"):
-		current = float(raw_input("What is the current  :"))
-		resistance = float(raw_input("What is the resistance  :"))
-		outputvolts = volts(current,resistance)
+		currentin = float(raw_input("What is the current  :"))
+		resistancein = float(raw_input("What is the resistance  :"))
+		outputvolts = voltsfunc(currentin,resistancein)
 		outputvolts = str(outputvolts)
 		print("#######################")
 		print (outputvolts + "volts")
 		print("#######################")
 
 	if (decision == "r" or decision == "R"):
-		volts = float(raw_input("What is the voltage  :"))
-		current = float(raw_input("What is the current  :"))
-		outputresistance = resistance(volts, current)
+		voltsin = float(raw_input("What is the voltage  :"))
+		currentin = float(raw_input("What is the current  :"))
+		outputresistance = resistancefunc(voltsin, currentin)
 		outputresistance = str(outputresistance)
 		print("###########################")
 		print (outputresistance + "ohms")
 		print("###########################")
 
 	if (decision == "i" or decision == "I"):
-		volts = float(raw_input("What is the voltage  :"))
-		resistance = float(raw_input("What is the resistance :"))
-		outputcurrent = current(volts, resistance)
+		voltsin = float(raw_input("What is the voltage  :"))
+		resistancein = float(raw_input("What is the resistance :"))
+		outputcurrent = currentfunc(voltsin, resistancein)
 		outputcurrent = str(outputcurrent)
 		print("#######################")
 		print(outputcurrent + "amps")
 		print("#######################")
 
 	if (decision == "w" or decision == "W"):
-		current = float(raw_input("What is the current  :"))
-		volts = float(raw_input("Waht is the voltage  :"))
-		outputwattage = wattage(current, volts)
+		currentin = float(raw_input("What is the current  :"))
+		voltsin = float(raw_input("Waht is the voltage  :"))
+		outputwattage = wattagefunc(currentin, voltsin)
 		print("#######################")
 		print(outputwattage + "watts")
 		print("#######################")
@@ -82,30 +85,30 @@ while True:
 
 		if (voltsin == '' and currentin == '' and resistancein == ''):
 			print("Please type an amount for 2 fields")
+		else:
 
-		if (type(voltsin) == float and type(resistancein) == float and type(currentin) == str):
-			currentin = current(voltsin, resistancein)
-			float(currentin)
-		if (type(voltsin) == float and type(currentin) == float and type(resistancein) == str):
-			resistancein = resistance(voltsin, currentin)
-			float(resistancein)
-		if (type(currentin) == float and type(resistancein) == float and type(voltsin) == str):
-			voltsin = volts(resistancein, currentin)
-			float(voltsin)
-		if (type(voltsin) == float and type(currentin) == float and type(wattagein) == str):
-			wattagein = wattage(voltsin, currentin)
-			float(wattagein)
+			if (type(voltsin) == float and type(resistancein) == float and type(currentin) == str):
+				currentin = currentfunc(voltsin, resistancein)
+				float(currentin)
+			if (type(voltsin) == float and type(currentin) == float and type(resistancein) == str):
+				resistancein = resistancefunc(voltsin, currentin)
+				float(resistancein)
+			if (type(currentin) == float and type(resistancein) == float and type(voltsin) == str):
+				voltsin = voltsfunc(resistancein, currentin)
+				float(voltsin)
+			if (type(voltsin) == float and type(currentin) == float and type(wattagein) == str):
+				wattagein = wattagefunc(voltsin, currentin)
+				float(wattagein)
 
 
 
-		voltsin = str(voltsin)
-		currentin = str(currentin)
-		resistancein = str(resistancein)
-		wattagein = str(wattagein)
-		print("############################################")
-		print("The voltage is " + voltsin + " volts")
-		print("Current is " + currentin + " amps")
-		print("The resistance is " + resistancein + " ohms")
-		print("The wattage is " + wattagein + " watts")
-		print("############################################")
-
+			voltsin = str(voltsin)
+			currentin = str(currentin)
+			resistancein = str(resistancein)
+			wattagein = str(wattagein)
+			print("############################################")
+			print("The voltage is " + voltsin + " volts")
+			print("Current is " + currentin + " amps")
+			print("The resistance is " + resistancein + " ohms")
+			print("The wattage is " + wattagein + " watts")
+			print("############################################")
